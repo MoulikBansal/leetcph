@@ -11,6 +11,8 @@ A visual studio code extension for leetcode. This powerful extension streamlines
 ## Installation
 
 - `open vs code -> go to search extension -> search leetcph ->install extension`
+ But this only works when all the dependencied have been already installed
+- `open github https://github.com/MoulikBansal/leetcph , then clone the repo , then start debugging and then run the commands`
 
 ### Fetch Test Cases
 
