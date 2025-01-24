@@ -10,9 +10,15 @@ A visual studio code extension for leetcode. This powerful extension streamlines
 
 ## Installation
 
-- `open vs code -> go to search extension -> search leetcph ->install extension`
- But this only works when all the dependencied have been already installed
-- `open github https://github.com/MoulikBansal/leetcph , then clone the repo , then start debugging and then run the commands`
+- Option 1: Install from VS Code Marketplace: 
+`open vs code -> go to extensions view -> search for leetcph ->install the extension`
+ 
+    But this only works when all the dependencied(for creating an extension) have been already installed on your device
+- Option 2: Install from GitHub:
+ If the first method doesn't work do the following
+
+
+    git clone https://github.com/MoulikBansal/leetcph
 
 ### Fetch Test Cases
 
@@ -30,7 +36,9 @@ If the message is `FAILED` then it also shows the wrong output and the expected 
 ## Requirements
 
 - Ensure the langauage you are coding in (Python or C++) is installed in your system.
-- Ensure that npm is installed in your system.
+
+### If you are downloading from vs code extension view
+- Ensure that npm is installed in your system
 - Install puppereer in your system by `npm install puppeteer`
 
 ## Extension Settings
@@ -39,24 +47,17 @@ This extension does not add any VS Code settings.
 
 ## Usage
 
-1. Open a folder in VS Code where you want to save the test cases and solution files.
-2. Use the command `CPH: Fetch Test Cases` to fetch test cases from a LeetCode problem URL.
-3. Write your solution in the created `solution.cpp` or `solution.py` file.
-4. Use the command `CPH: Run Test Cases` to run your solution against the fetched test cases.
-
-## Usage
-
 1. Open the command palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on macOS).
 2. Run `CPH: Fetch Test Cases`.
 3. Enter the LeetCode problem URL (e.g., `https://leetcode.com/problems/roman-to-integer/description/`).
 4. Select the file type (C++ or Python).
 5. Write your solution in the created `solution.cpp` or `solution.py` file.
-6. Run `CPH: Run Test Cases` to test your solution.
+6. Run `CPH: Run Test Cases` and select the file type to test your solution.
 
 ## Future enhancements
-
-1. Automated input size addition for better user workflow.
-2. Add support for more languages.
+1. Fix issue of extension downloaded directly from vs code doesn't work on all devices.
+2. Automated input size addition(for vectors) for better user workflow.
+3. Add support for more languages.
 
 ## Contributing
 
