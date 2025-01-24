@@ -89,6 +89,29 @@ export function activate(context: vscode.ExtensionContext) {
                     return;
                 }
 
+
+                /////
+                // const result = stdout.trim();
+                // const expectedLines = expectedOutput.trim().split('\n');
+                //     const resultLines = result.split('\n');
+
+                //     let passed = true;
+                //     let message = '';
+
+                //     for (let i = 0; i < expectedLines.length; i++) {
+                //         if (expectedLines[i] !== resultLines[i]) {
+                //             passed = false;
+                //             message += `Line ${i + 1}:\nExpected: ${expectedLines[i]}\nGot: ${resultLines[i]}\n\n`;
+                //         }
+                //     }
+
+                //     if (passed) {
+                //         vscode.window.showInformationMessage('PASSED');
+                //     } else {
+                //         vscode.window.showErrorMessage(`FAILED\n${message}`);
+                //     }
+                /////
+
                 const result = stdout.trim();
                 if (result === expectedOutput.trim()) {
                     vscode.window.showInformationMessage('PASSED');
@@ -193,11 +216,11 @@ async function fetchAndSaveTestCases(url: string) {
 
         let match;
         while ((match = inputRegex.exec(content)) !== null) {
-            inputs.push(cleanData(match[1].trim()));
+            inputs.push(saaf_safai(match[1].trim()));
         }
 
         while ((match = outputRegex.exec(content)) !== null) {
-            outputs.push(cleanData(match[1].trim()));
+            outputs.push(saaf_safai(match[1].trim()));
         }
 
         if (inputs.length === 0 || outputs.length === 0) {
@@ -229,19 +252,18 @@ async function fetchAndSaveTestCases(url: string) {
 }
 
 ///
-function cleanData(rawData: string): string {
-    // Clean and format test cases data for easier parsing
-    let cleaned = rawData
-      .split(/\b[a-zA-Z_0-9]+\s*=\s*/) // Split at variable assignment
-      .filter(part => part.trim() !== "") // Remove empty parts
-      .map(part => part.trim()) // Trim whitespaces
+function saaf_safai(rawData: string): string {
+    let ans = rawData
+      .split(/\b[a-zA-Z_0-9]+\s*=\s*/) 
+      .filter(part => part.trim() !== "") 
+      .map(part => part.trim()) 
       .map(part => part
-        .replace(/"/g, '') // Remove double quotes
-        .replace(/[\[\]]/g, '') // Remove brackets
-        .replace(/,/g, ' ') // Replace commas with spaces
-      ).join('\n');
-  
-    return cleaned;
+        .replace(/"/g, '') 
+        .replace(/[\[\]]/g, '') 
+        .replace(/,/g, ' ') 
+      )
+      .join('\n');
+    return ans;
 }
 
 ///
